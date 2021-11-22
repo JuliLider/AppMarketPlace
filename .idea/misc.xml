@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/camil/AndroidStudioProjects/AppMarketPlace/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/camil/AndroidStudioProjects/AppMarketPlace/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/camil/AndroidStudioProjects/AppMarketPlace/app/src/main/res/layout/activity_welcome.xml" value="0.2564814814814815" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14074074074074075" />
       </map>
     </option>
