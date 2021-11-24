@@ -21,7 +21,7 @@ class ToDoFragment : Fragment() {
 
         val fragmento = inflater.inflate(R.layout.fragment_to_do, container, false)
 
-        val detail1: Button = fragmento.findViewById(R.id.btn_detail_1)
+        /*val detail1: Button = fragmento.findViewById(R.id.btn_detail_1)
         val detail2: Button = fragmento.findViewById(R.id.btn_detail_2)
         val detail3: Button = fragmento.findViewById(R.id.btn_detail_3)
 
@@ -59,7 +59,7 @@ class ToDoFragment : Fragment() {
                 ?.replace(R.id.fragment_container_view, DetailFragment::class.java, datos, "detail")
                 ?.addToBackStack("")
                 ?.commit()
-        })
+        })*/
 
         return fragmento
     }
