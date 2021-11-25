@@ -10,16 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class MyTaskListAdapter (context: AppCompatActivity,
-val info: Bundle) : RecyclerView.Adapter<MyTaskListAdapter.MyViewHolder>() {
+                        val info: Bundle) : RecyclerView.Adapter<MyTaskListAdapter.MyViewHolder>() {
 
     class MyViewHolder (val layout: View): RecyclerView.ViewHolder(layout)
 
     private var context: AppCompatActivity = context
 
-    var myTaskProducts: ArrayList<String> = info.getStringArrayList("titles") as ArrayList<String>
+    var myTaskTitles: ArrayList<String> = info.getStringArrayList("titles") as ArrayList<String>
     var myTaskPrices: ArrayList<String> = info.getStringArrayList("prices") as ArrayList<String>
     var myTaskCategory: ArrayList<String> = info.getStringArrayList("category") as ArrayList<String>
-
 
     override fun onCreateViewHolder (parent: ViewGroup, viewType: Int): MyViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.task_list_items, parent, false)
@@ -29,14 +28,23 @@ val info: Bundle) : RecyclerView.Adapter<MyTaskListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        var textViewProducts = holder.layout.findViewById<TextView>(R.id.textViewProduct)
-        textViewProducts.text = myTaskProducts[position]
+        textViewProducts.text = myTaskTitles[position]
 
         var textViewCategory = holder.layout.findViewById<TextView>(R.id.textViewCategory)
         textViewCategory.text = myTaskCategory [position]
 
         holder.layout.setOnClickListener{
             Toast.makeText(holder.itemView.context, textViewProducts.text, Toast.LENGTH_LONG).show()
-            // val datos = Bundle() ...//
+            val datos = Bundle()
+            datos.putString("Product", textViewProducts.text as String)
+            datos.putString("Category", textViewCategory.text as String)
+            datos.putString("Price", myTaskPrices[position])
+
+            context.getSupportFragmentManager()?.beginTransaction()
+                ?.setReorderingAllowed(true)
+                ?.replace(R.id.fragment_container_view, DetailFragment::class.java, datos, "detail")
+                ?.addToBackStack("")
+                ?.commit()
         }
 
 
@@ -44,6 +52,6 @@ val info: Bundle) : RecyclerView.Adapter<MyTaskListAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
 
-       return myTaskProducts.size
+       return myTaskTitles.size
     }
 }

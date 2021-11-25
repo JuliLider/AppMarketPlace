@@ -16,6 +16,12 @@
     <string name="text_product1">Camiseta</string>
     <string name="text_product2">Chaqueta</string>
     <string name="text_product3">Pantalón</string>
+    <string name="text_price1">$10.000</string>
+    <string name="text_price2">$250.000</string>
+    <string name="text_price3">$150.000</string>
+    <string name="text_category1">Sport</string>
+    <string name="text_category2">all occasions</string>
+    <string name="text_category3">Formal</string>
     <string name="text_go">Go</string>
     <string name="text_pruduct">Product</string>
     <string name="text_category">Category</string>
