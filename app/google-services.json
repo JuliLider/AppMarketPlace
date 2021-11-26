@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415610764404",
+    "project_id": "marketplace-ideapps-56169",
+    "storage_bucket": "marketplace-ideapps-56169.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415610764404:android:8c6e947c9024e4c2f9a521",
+        "android_client_info": {
+          "package_name": "com.example.appmarketplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415610764404-ohl02uif06lf2nvfsusoal25qaeu35v6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAszsKsIkoguTZqW7s89DkExhaXrHR0C_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415610764404-ohl02uif06lf2nvfsusoal25qaeu35v6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -31,6 +31,9 @@
     <string name="text_about">About</string>
     <string name="text_title">task title</string>
     <string name="text_time">time</string>
+    <string name="fire_base">FireBase</string>
+    <string name="fire_base_message">Full Firebase integration</string>
+    <string name="go_markerplace">GoMarkerplace</string>
 
     <string name="text_mensaje1">###########</string>
     <string name="text_mensaje2">##########</string>

@@ -16,6 +16,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 
+enum class ProviderType{
+    BASIC
+}
+
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var appbarConfiguration: AppBarConfiguration
 
