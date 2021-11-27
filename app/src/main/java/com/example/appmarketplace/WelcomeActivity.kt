@@ -13,21 +13,32 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.appmarketplace.databinding.ActivityWelcomeBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 
 enum class ProviderType{
-    BASIC
+    BASIC,
+    GOOGLE,
+    FACEBOOK
 }
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var appbarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
 
-        setSupportActionBar(findViewById(R.id.my_toolbar))
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.appBarWelcome.myToolbar)
+
+        binding.appBarWelcome.fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
 
         val fab: View = findViewById(R.id.fab)
 
@@ -35,9 +46,8 @@ class WelcomeActivity : AppCompatActivity() {
             Snackbar.make(view, R.string.text_fab, Snackbar.LENGTH_LONG).show()
         }
 
-        val drawerLayout:DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView:NavigationView = findViewById(R.id.nav_view)
-
+        val drawerLayout:DrawerLayout = binding.drawerLayout
+        val navView:NavigationView = binding.navView
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
 

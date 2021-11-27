@@ -1,17 +1,14 @@
 package com.example.appmarketplace
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private var edtPassword: EditText? = null
     private var edtUsername: EditText? = null
@@ -19,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         val analytics = FirebaseAnalytics.getInstance(this)
         val bundle = Bundle()
@@ -89,6 +86,9 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(welcomeIntent)
     }
+
+    fun googleLogin(view: android.view.View) {}
+    fun facebookLogin(view: android.view.View) {}
 
 
 }
