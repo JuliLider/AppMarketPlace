@@ -1,6 +1,7 @@
 package com.example.appmarketplace
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -91,17 +92,18 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem)= when(item.itemId){
-        R.id.action_search ->{
-            Toast.makeText(this, R.string.text_action_search, Toast.LENGTH_LONG).show()
-            true
-        }
+
         R.id.action_settings ->{
-            Toast.makeText(this, R.string.text_action_settings, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.text_action_home, Toast.LENGTH_LONG).show()
+            val intento = Intent(this, WelcomeActivity::class.java).apply {}
+            startActivity(intento)
             true
         }
         R.id.action_logout ->{
             onSignoff();
+            val intento = Intent(this, LoginActivity::class.java).apply {  }
             Toast.makeText(this, R.string.text_action_logout, Toast.LENGTH_LONG).show()
+            startActivity(intento)
             true
         }
         else ->{

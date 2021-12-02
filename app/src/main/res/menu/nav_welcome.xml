@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/nav_todo"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:icon="@drawable/ic_product"
         android:title="@string/text_todo"/>
 
     <item

@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         edtPassword = findViewById(R.id.edtPassword);
         edtUsername = findViewById(R.id.edtUsername);
 
+        title = "Home"
 
         session()
 
@@ -82,9 +83,10 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showWelcome(email: String, provider: ProviderType){
+    private fun showWelcome(email: String, Provider: ProviderType){
         val welcomeIntent = Intent(this, WelcomeActivity::class.java).apply {
-
+            putExtra("email", email)
+            putExtra("Provider", Provider.toString())
         }
         startActivity(welcomeIntent)
     }
