@@ -1,5 +1,6 @@
 package com.example.appmarketplace
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -16,11 +17,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.appmarketplace.databinding.ActivityWelcomeBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 enum class ProviderType{
     BASIC,
-    GOOGLE,
-    FACEBOOK
+    GOOGLE
 }
 
 class WelcomeActivity : AppCompatActivity() {
@@ -38,6 +39,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding.appBarWelcome.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
         }
 
         val fab: View = findViewById(R.id.fab)
@@ -57,13 +59,23 @@ class WelcomeActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-
-        if (savedInstanceState == null){
+       /* if (savedInstanceState == null){
             supportFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
                 .add(R.id.fragment_container_view, ToDoFragment::class.java, null, "todo")
                 .commit()
-        }
+        }*/
+        //SETUP
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+        val provider = bundle?.getString("provider")
+
+
+        // SAVE DATA GOOGLE
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.putString("provider", provider)
+        prefs.apply()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -88,6 +100,7 @@ class WelcomeActivity : AppCompatActivity() {
             true
         }
         R.id.action_logout ->{
+            onSignoff();
             Toast.makeText(this, R.string.text_action_logout, Toast.LENGTH_LONG).show()
             true
         }
@@ -95,5 +108,15 @@ class WelcomeActivity : AppCompatActivity() {
 
             super.onOptionsItemSelected(item)
         }
+    }
+    fun onSignoff() {
+
+        //Delete Data
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.clear()
+        prefs.apply()
+
+        FirebaseAuth.getInstance().signOut()
+        onBackPressed()
     }
 }

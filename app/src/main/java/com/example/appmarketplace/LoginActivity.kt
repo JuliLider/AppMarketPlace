@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         edtPassword = findViewById(R.id.edtPassword);
         edtUsername = findViewById(R.id.edtUsername);
 
+
         session()
 
     }
@@ -37,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun onLogin(botonLogin: android.view.View) {
+    fun onLogin(view: android.view.View) {
         var username = edtUsername!!.text.toString();
         var password = edtPassword!!.text.toString();
 
@@ -87,8 +89,11 @@ class LoginActivity : AppCompatActivity() {
         startActivity(welcomeIntent)
     }
 
-    fun googleLogin(view: android.view.View) {}
-    fun facebookLogin(view: android.view.View) {}
+    fun googleLogin(view: android.view.View) {
+
+
+    }
+
 
 
 }

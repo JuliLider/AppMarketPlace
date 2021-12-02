@@ -127,16 +127,6 @@
             android:onClick="googleLogin"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <Button
-            android:id="@+id/btnFacebook"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/facebook"
-            android:gravity="center_horizontal|top"
-            android:onClick="facebookLogin"
-            tools:ignore="SpeakableTextPresentCheck" />
-
 
     </LinearLayout>
 
