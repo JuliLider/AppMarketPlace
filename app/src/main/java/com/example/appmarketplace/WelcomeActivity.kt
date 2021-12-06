@@ -35,7 +35,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.appBarWelcome.myToolbar)
+        setSupportActionBar(binding.appBarWelcome.toolbar)
 
         binding.appBarWelcome.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -51,36 +51,31 @@ class WelcomeActivity : AppCompatActivity() {
 
         val drawerLayout:DrawerLayout = binding.drawerLayout
         val navView:NavigationView = binding.navView
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_home) as NavHostFragment
         val navController = navHostFragment.navController
 
-        appbarConfiguration = AppBarConfiguration(setOf(R.id.nav_todo, R.id.nav_about), drawerLayout)
+        appbarConfiguration = AppBarConfiguration(setOf(R.id.nav_todo, R.id.nav_about, R.id.nav_detail), drawerLayout)
 
         setupActionBarWithNavController(navController, appbarConfiguration)
 
         navView.setupWithNavController(navController)
 
-       /* if (savedInstanceState == null){
+/*        if (savedInstanceState == null){
             supportFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
                 .add(R.id.fragment_container_view, ToDoFragment::class.java, null, "todo")
                 .commit()
         }*/
+
         //SETUP
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
 
-
-        // SAVE DATA GOOGLE
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email", email)
-        prefs.putString("provider", provider)
-        prefs.apply()
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_home) as NavHostFragment
         val navController = navHostFragment.navController
 
         return navController.navigateUp(appbarConfiguration) || super.onSupportNavigateUp()

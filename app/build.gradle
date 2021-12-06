@@ -1,8 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.google.gms.google-services'
 }
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 31
@@ -60,4 +61,5 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation("androidx.fragment:fragment-ktx:1.4.0")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.2.1'
 }

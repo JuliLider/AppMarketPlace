@@ -8,14 +8,34 @@
 
     <fragment
         android:id="@+id/nav_todo"
-        android:name="com.example.appmarketplace.ToDoFragment"
+        android:name="com.example.appmarketplace.fragment.ToDoFragment"
         android:label="@string/text_todo"
-        tools:layout="@layout/fragment_to_do" />
+        tools:layout="@layout/fragment_to_do" >
+        <action
+            android:id="@+id/action_nav_todo_to_nav_detail"
+            app:destination="@id/nav_detail" />
+        <action
+            android:id="@+id/action_nav_todo_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_todo_to_nav_about"
+            app:destination="@id/nav_about" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.example.appmarketplace.AboutFragment"
+        android:name="com.example.appmarketplace.fragment.AboutFragment"
         android:label="@string/text_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.appmarketplace.fragment.SlideshowFragment"
+        android:label="fragment_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.example.appmarketplace.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 
 </navigation>

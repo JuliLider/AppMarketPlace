@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    tools:context=".WelcomeActivity">
+    tools:openDrawer="start">
 
     <include
         android:id="@+id/app_bar_welcome"
@@ -22,6 +21,5 @@
         android:layout_gravity= "start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_welcome"/>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
