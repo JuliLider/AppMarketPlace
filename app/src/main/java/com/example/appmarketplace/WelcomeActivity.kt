@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
@@ -71,6 +72,15 @@ class WelcomeActivity : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
+
+        navView.getHeaderView(0).findViewById<TextView>(R.id.emailTextView).text = email;
+        navView.getHeaderView(0).findViewById<TextView>(R.id.providerTextView).text=provider;
+
+        //Save Data
+        val prefs=getSharedPreferences(resources.getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email",email)
+        prefs.putString("provider",provider)
+        prefs.apply()
 
     }
 

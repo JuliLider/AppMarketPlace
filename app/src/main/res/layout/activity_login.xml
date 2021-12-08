@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/loginLayout">
 
     //Imagen logo
     <LinearLayout
@@ -109,7 +110,7 @@
 
     </LinearLayout>
 
-    //Acceso Google y Meta
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

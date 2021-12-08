@@ -47,7 +47,8 @@
     <string name="text_mensaje1">###########</string>
     <string name="text_mensaje2">##########</string>
 
-
+    <string name="default_web_client_id2" translatable="false">1017434080370-slqfef8v4jf8i7ks6dd1gp1ibhsp3ac3.apps.googleusercontent.com</string>
+    <string name="text_errorAuth">Failed to authenticate</string>
     <string name="text_ideapps">Ideapps 2021 ®</string>
 
     <string name="btn_login">Login</string>
