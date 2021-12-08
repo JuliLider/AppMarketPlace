@@ -25,7 +25,6 @@ import com.example.appmarketplace.R
 import com.example.appmarketplace.databinding.FragmentToDoBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 
 public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
@@ -124,6 +123,10 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                     listSeller.add(document.data["seller"].toString())
                 }
 
+                var productExist = listProduct.find { it.id == document.id}
+
+                if (productExist == null) {
+
                     listProduct.add(
                         ProductEntity(
                             document.data["imagen"].toString(),
@@ -131,8 +134,10 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                             document.data["cost"].toString(),
                             document.data["category"].toString(),
                             document.data["seller"].toString(),
+                            document.id
                         )
                     )
+                    }
             }
             productAdapter.notifyDataSetChanged();
         }
@@ -190,6 +195,9 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
 
+                    var productExist = listProduct.find { it.id == document.id}
+
+                    if (productExist == null) {
                         listProduct.add(
                             ProductEntity(
                                 document.data["imagen"].toString(),
@@ -197,8 +205,10 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
+                                document.id
                             )
                         )
+                    }
                 }
                 productAdapter.notifyDataSetChanged();
             }
@@ -213,6 +223,9 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
 
+                    var productExist = listProduct.find { it.id == document.id}
+
+                    if (productExist == null) {
                         listProduct.add(
                             ProductEntity(
                                 document.data["imagen"].toString(),
@@ -220,8 +233,10 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
+                                document.id
                             )
                         )
+                        }
                 }
                 productAdapter.notifyDataSetChanged();
             }
@@ -237,6 +252,9 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
 
+                    var productExist = listProduct.find { it.id == document.id}
+
+                    if (productExist == null) {
                         listProduct.add(
                             ProductEntity(
                                 document.data["imagen"].toString(),
@@ -244,9 +262,11 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
+                                document.id
 
                             )
                         )
+                        }
                 }
 
                 productAdapter.notifyDataSetChanged();
@@ -263,6 +283,9 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
 
+                    var productExist = listProduct.find { it.id == document.id}
+
+                    if (productExist == null) {
                         listProduct.add(
                             ProductEntity(
                                 document.data["imagen"].toString(),
@@ -270,10 +293,11 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
+                                document.id
 
                             )
                         )
-
+                        }
                 }
 
                 productAdapter.notifyDataSetChanged();
