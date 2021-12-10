@@ -30,7 +30,7 @@
     <string name="text_price">Price</string>
     <string name="text_developed">Developed by Ideapps</string>
     <string name="text_todo">Products</string>
-    <string name="text_about">About</string>
+    <string name="text_about">Buy</string>
     <string name="text_title">Title</string>
     <string name="text_search">Search</string>
     <string name="text_time">Category</string>
@@ -46,6 +46,7 @@
     <string name="text_buy">Buy</string>
     <string name="text_mensaje1">###########</string>
     <string name="text_mensaje2">##########</string>
+    <string name="menu_Order">Order</string>
 
     <string name="default_web_client_id2" translatable="false">1017434080370-slqfef8v4jf8i7ks6dd1gp1ibhsp3ac3.apps.googleusercontent.com</string>
     <string name="text_errorAuth">Failed to authenticate</string>

@@ -14,7 +14,7 @@ import java.io.InputStream
 import java.net.URL
 
 
-public  class ProductAdapter(private val dataSet: MutableList<ProductEntity>) :
+public  class ProductAdapter(private val dataSet: MutableList<ProductEntity>,private val listener:OnItemClickListener) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,14 +22,24 @@ public  class ProductAdapter(private val dataSet: MutableList<ProductEntity>) :
         return ViewHolder(view)
     }
 
-    public class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
 
         val titleItems :TextView = itemView.findViewById<TextView>(R.id.titleItem)
         val costItems :TextView = itemView.findViewById<TextView>(R.id.costItem)
         val imagenItem :ImageView = itemView.findViewById<ImageView>(R.id.imagenItem)
         val categoryItem:TextView = itemView.findViewById<TextView>(R.id.categoryItem);
         val sellerItem :TextView= itemView.findViewById<TextView>(R.id.sellerItem);
+        val scoreItem :TextView= itemView.findViewById<TextView>(R.id.scoreItem);
 
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            if(adapterPosition != RecyclerView.NO_POSITION){
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -46,9 +56,20 @@ public  class ProductAdapter(private val dataSet: MutableList<ProductEntity>) :
 
         holder.sellerItem.text = productEntity.seller;
 
+        var average = productEntity.average;
+        if(average > 0){
+            holder.scoreItem.text = average.toString()
+        }else{
+            holder.scoreItem.visibility = View.INVISIBLE;
+        }
+
     }
 
     override fun getItemCount():Int{
         return dataSet.size
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 }

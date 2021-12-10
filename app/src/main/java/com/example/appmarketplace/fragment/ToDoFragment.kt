@@ -25,10 +25,11 @@ import com.example.appmarketplace.R
 import com.example.appmarketplace.databinding.FragmentToDoBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 
 public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
-        AdapterView.OnItemSelectedListener {
+        AdapterView.OnItemSelectedListener, ProductAdapter.OnItemClickListener {
 
     private lateinit var toDoViewModel: ToDoViewModel
     private var _binding: FragmentToDoBinding? = null
@@ -61,7 +62,7 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
         recycleView.setHasFixedSize(true)
 
         getAllProduct()
-        productAdapter = ProductAdapter(listProduct);
+        productAdapter = ProductAdapter(listProduct, this);
         recycleView.adapter = productAdapter;
 
         //Search
@@ -134,11 +135,16 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                             document.data["cost"].toString(),
                             document.data["category"].toString(),
                             document.data["seller"].toString(),
-                            document.id
+                            document.id,
+                            document.data["average"].toString().toDouble()
                         )
                     )
                     }
             }
+            lifecycleScope.launch {
+                averageScore()
+            }
+
             productAdapter.notifyDataSetChanged();
         }
     }
@@ -205,7 +211,8 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
-                                document.id
+                                document.id,
+                                document.data["average"].toString().toDouble()
                             )
                         )
                     }
@@ -233,7 +240,8 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
-                                document.id
+                                document.id,
+                                document.data["average"].toString().toDouble()
                             )
                         )
                         }
@@ -262,7 +270,8 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
-                                document.id
+                                document.id,
+                                document.data["average"].toString().toDouble()
 
                             )
                         )
@@ -293,7 +302,8 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
                                 document.data["cost"].toString(),
                                 document.data["category"].toString(),
                                 document.data["seller"].toString(),
-                                document.id
+                                document.id,
+                                document.data["average"].toString().toDouble()
 
                             )
                         )
@@ -305,5 +315,39 @@ public class ToDoFragment : Fragment(), SearchView.OnQueryTextListener,
 
     }
 
+    override fun onItemClick(position: Int) {
+
+        val productItem: ProductEntity = listProduct[position]
+
+        //Go  ProductActivity
+        var bundle = Bundle()
+        bundle.putString("product", productItem.id)
+        parentFragmentManager.setFragmentResult("key", bundle)
+
+        var nav = Navigation.createNavigateOnClickListener(R.id.nav_detail)
+        nav.onClick(view);
+
+    }
+
+    private suspend fun averageScore() {
+
+        for (product in listProduct) {
+            var average = 0.0
+            db.collection("product").document(product.id).collection("comments").get()
+                .addOnSuccessListener {
+
+                    if (it.any()) {
+
+                        for (score in it) {
+                            average += score.data["score"].toString().toDouble()
+                        }
+
+                        db.collection("product").document(product.id).update(
+                            "average",  average / it.count()
+                        )
+                    }
+                }.await()
+        }
+    }
 
 }
