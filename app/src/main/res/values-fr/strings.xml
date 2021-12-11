@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">AppMarketPlace</string>
+
+    <string name="text_user">Utilisateur</string>
+    <string name="text_password">Mot de passe</string>
+    <string name="text_name">Nom</string>
+    <string name="text_last_name">Le Nom</string>
+    <string name="text_phone_number">Numéro de Téléphone</string>
+    <string name="text_terms1">Accepter la politique de confidentialité</string>
+    <string name="text_terms2">Accepter les conditions dutilisation du site</string>
+    <string name="text_email">Email</string>
+    <string name="text_provider">Fournisseur</string>
+    <string name="text_action_search">Chercher</string>
+    <string name="text_action_home">Page daccueil</string>
+    <string name="text_action_logout">Se déconnecter</string>
+    <string name="text_fab">Ajouter un élément</string>
+    <string name="text_product1">Camiseta</string>
+    <string name="text_product2">Chaqueta</string>
+    <string name="text_product3">Pantalón</string>
+    <string name="text_price1">$10.000</string>
+    <string name="text_price2">$250.000</string>
+    <string name="text_price3">$150.000</string>
+    <string name="text_category1">Sport</string>
+    <string name="text_seller">Fabricant</string>
+    <string name="text_category2">all occasions</string>
+    <string name="text_category3">Formal</string>
+    <string name="text_go">Aller</string>
+    <string name="text_pruduct">Produit</string>
+    <string name="text_category">Catégorie</string>
+    <string name="text_price">Prix</string>
+    <string name="text_developed">Développé par Ideapps</string>
+    <string name="text_todo">Produits</string>
+    <string name="text_about">Acheter</string>
+    <string name="text_title">Qualification</string>
+    <string name="text_search">Chercher</string>
+    <string name="text_time">Catégorie</string>
+    <string name="fire_base">FireBase</string>
+    <string name="fire_base_message">Full Firebase integration</string>
+    <string name="go_markerplace">GoMarkerplace</string>
+    <string name="prefs_file" translatable="false">com.example.appmarketplace.PREFERECE_FILE_KEY</string>
+    <string name="text_All">Tout</string>
+    <string name="text_description">La description</string>
+    <string name="text_Comments">Commentaires</string>
+    <string name="text_stars">Étoiles</string>
+    <string name="text_total">Le total </string>
+    <string name="text_buy">Acheter</string>
+    <string name="text_inprocess">En Cours</string>
+
+    <string name="default_web_client_id2" translatable="false">1017434080370-slqfef8v4jf8i7ks6dd1gp1ibhsp3ac3.apps.googleusercontent.com</string>
+    <string name="text_errorAuth">Échec de lauthentification</string>
+    <string name="text_ideapps">Ideapps 2021 ®</string>
+
+    <string name="btn_login">Connexion</string>
+    <string name="btn_register">Sinscrire</string>
+
+    <string name="hint_user">votre_e-mail@domaine.com</string>
+    <string name="hint_password">Votre mot de passe</string>
+    <string name="hint_name">Ton nom</string>
+    <string name="hint_last_name">Votre nom de famille</string>
+    <string name="hint_phone_number">321 000 00 00</string>
+
+
+
+
+</resources>

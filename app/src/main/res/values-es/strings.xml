@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">AppMarketPlace</string>
+
+    <string name="text_user">Usuario</string>
+    <string name="text_password">Contraseña</string>
+    <string name="text_name">Nombres</string>
+    <string name="text_last_name">Apellidos</string>
+    <string name="text_phone_number">Numero de Telefono</string>
+    <string name="text_terms1">Aceptar la política de declaración de privacidad</string>
+    <string name="text_terms2">Acepta los términos y condiciones de uso del sitio.</string>
+    <string name="text_email">Email</string>
+    <string name="text_provider">Proveedor</string>
+    <string name="text_action_search">Búsqueda</string>
+    <string name="text_action_home">Página Principal</string>
+    <string name="text_action_logout">Desconectar</string>
+    <string name="text_fab">Agregar elemento</string>
+    <string name="text_product1">Camiseta</string>
+    <string name="text_product2">Chaqueta</string>
+    <string name="text_product3">Pantalón</string>
+    <string name="text_price1">$10.000</string>
+    <string name="text_price2">$250.000</string>
+    <string name="text_price3">$150.000</string>
+    <string name="text_category1">Sport</string>
+    <string name="text_seller">Fabricante</string>
+    <string name="text_category2">all occasions</string>
+    <string name="text_category3">Formal</string>
+    <string name="text_go">Ir</string>
+    <string name="text_pruduct">Producto</string>
+    <string name="text_category">Categoría</string>
+    <string name="text_price">Precio</string>
+    <string name="text_developed">Desarrollado por Ideapps</string>
+    <string name="text_todo">Productos</string>
+    <string name="text_about">Comprar</string>
+    <string name="text_title">Título</string>
+    <string name="text_search">Búsqueda</string>
+    <string name="text_time">Categoría</string>
+    <string name="fire_base">FireBase</string>
+    <string name="fire_base_message">Full Firebase integration</string>
+    <string name="go_markerplace">GoMarkerplace</string>
+    <string name="prefs_file" translatable="false">com.example.appmarketplace.PREFERECE_FILE_KEY</string>
+    <string name="text_All">Todo</string>
+    <string name="text_description">Descripción</string>
+    <string name="text_Comments">Comentarios</string>
+    <string name="text_stars">Estrellas</string>
+    <string name="text_total">Total </string>
+    <string name="text_buy">Comprar</string>
+    <string name="menu_Order">Pedido</string>
+    <string name="text_inprocess">En Proceso</string>
+
+    <string name="default_web_client_id2" translatable="false">1017434080370-slqfef8v4jf8i7ks6dd1gp1ibhsp3ac3.apps.googleusercontent.com</string>
+    <string name="text_errorAuth">No se pudo autenticar</string>
+    <string name="text_ideapps">Ideapps 2021 ®</string>
+
+    <string name="btn_login">Acceso</string>
+    <string name="btn_register">Registrarse</string>
+
+    <string name="hint_user">tu_correo_electrónico@dominio.com</string>
+    <string name="hint_password">Tu contraseña</string>
+    <string name="hint_name">Tu Nombre</string>
+    <string name="hint_last_name">Tus Apellidos</string>
+    <string name="hint_phone_number">321 000 00 00</string>
+
+
+
+
+</resources>
