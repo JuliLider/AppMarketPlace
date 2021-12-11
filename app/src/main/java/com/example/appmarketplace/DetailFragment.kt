@@ -76,7 +76,7 @@ class DetailFragment : Fragment() {
             Log.d(ContentValues.TAG, "more")
             var amount =  amountText!!.text.toString().toInt()
 
-            if(amount < 10){
+            if(amount < 6){
                 amount += 1
                 amountText!!.text = amount.toString()
             }
@@ -85,7 +85,7 @@ class DetailFragment : Fragment() {
 
         }
 
-/*        var buttonAddCar = root.findViewById<ImageView>(R.id.addCar)
+        var buttonAddCar = root.findViewById<ImageView>(R.id.addCar)
         buttonAddCar.setOnClickListener {
             Log.d(ContentValues.TAG, "car")
 
@@ -115,7 +115,7 @@ class DetailFragment : Fragment() {
             var nav = Navigation.createNavigateOnClickListener(R.id.nav_about)
             nav.onClick(view);
 
-        }*/
+        }
 
         return root
     }
