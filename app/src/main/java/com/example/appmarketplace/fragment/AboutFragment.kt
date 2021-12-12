@@ -41,6 +41,9 @@ class AboutFragment: Fragment(), CarAdapter.OnItemClickListener   {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val prefs = requireActivity().getSharedPreferences(resources.getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        idCar = prefs.getString("car", null).toString()
+
         //Recycler
         recycleView = root.findViewById<RecyclerView>(R.id.reclyclerCar)
         recycleView.layoutManager = LinearLayoutManager(activity)
